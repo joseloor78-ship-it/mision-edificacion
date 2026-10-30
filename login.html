@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ingresar · Del plano al 3D</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="vendor/supabase/supabase.js" defer></script>
+  <script src="js/config.js" defer></script>
+  <script src="js/auth.js" defer></script>
+  <script src="js/login.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <path d="M16 2 28 9v14L16 30 4 23V9z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          <path class="linea-acento" d="M4 9l12 7 12-7M16 16v14" fill="none" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <span>Del plano<br>al 3D</span>
+      </a>
+      <nav aria-label="Principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="creditos.html">Créditos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <div class="wrap">
+      <div class="card login-card">
+        <h1 style="font-size:1.8rem">Ingresar a la asignatura</h1>
+        <p class="muted">El acceso es solo para los participantes de la asignatura. Si no tienes cuenta, pídela a tu docente.</p>
+        <form id="form-login" novalidate>
+          <div class="campo">
+            <label for="correo">Correo electrónico</label>
+            <input id="correo" name="correo" type="email" autocomplete="username" required>
+          </div>
+          <div class="campo">
+            <label for="clave">Contraseña</label>
+            <input id="clave" name="clave" type="password" autocomplete="current-password" required>
+          </div>
+          <button id="login-boton" class="btn btn-primary" type="submit">Ingresar</button>
+          <p id="login-msg" class="mensaje-form" role="alert" hidden></p>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Del plano al 3D: Misión Edificación · Recurso educativo con datos ficticios.</p>
+    </div>
+  </footer>
+</body>
+</html>

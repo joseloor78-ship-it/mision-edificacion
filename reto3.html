@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+      <script src="vendor/supabase/supabase.js" defer></script>
+  <script src="js/config.js" defer></script>
+  <script src="js/auth.js" defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nivel 3: Del plano al 3D · Del plano al 3D</title>
+  <meta name="description" content="Comprueba si un modelo tridimensional básico corresponde con los planos de una vivienda.">
+  <link rel="stylesheet" href="css/estilos.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./vendor/three/build/three.module.js",
+      "three/addons/": "./vendor/three/examples/jsm/"
+    }
+  }
+  </script>
+  <script src="js/progreso.js" defer></script>
+  <script type="module" src="js/reto3.js"></script>
+</head>
+<body class="tema-oscuro" data-requiere-sesion>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <path d="M16 2 28 9v14L16 30 4 23V9z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          <path class="linea-acento" d="M4 9l12 7 12-7M16 16v14" fill="none" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <span>Del plano<br>al 3D</span>
+      </a>
+      <nav aria-label="Principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="aprender.html">Aprender</a></li>
+          <li><a href="mision.html" aria-current="page">Misión</a></li>
+          <li><a href="creditos.html">Créditos</a></li>
+        </ul>
+      </nav>
+      <span class="chip">Puntos: <strong id="puntos-valor">0</strong></span>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <div class="page-title">
+      <div class="wrap">
+        <p><a href="mision.html">← Volver a la misión</a></p>
+        <h1>Nivel 3: Del plano al 3D</h1>
+        <p>Explora un modelo tridimensional de la vivienda y comprueba si corresponde con los planos.</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="wrap">
+
+        <p id="error-carga" class="error-visor" role="alert" hidden>No se pudo cargar el reto. Si abriste el archivo directamente desde el explorador, usa Live Server o un servidor local. Si el problema continúa, revisa que la carpeta vendor/three exista (instrucciones de instalación de Three.js).</p>
+        <p id="error-webgl" class="error-visor" role="alert" hidden>Tu navegador no pudo iniciar los gráficos 3D (WebGL). Prueba con otro navegador o activa la aceleración por hardware.</p>
+
+        <div id="aviso-bloqueado" class="card" hidden>
+          <h2>Nivel bloqueado</h2>
+          <p>Para jugar este nivel primero debes completar el Nivel 2.</p>
+          <div class="actions"><a class="btn btn-primary" href="mision.html">Volver a la misión</a></div>
+        </div>
+
+        <!-- Pantalla inicial -->
+        <div id="pantalla-inicio" class="card">
+          <h2 tabindex="-1">Antes de empezar</h2>
+          <ul>
+            <li>Verás un <strong>modelo 3D</strong> de la vivienda y <strong>8 preguntas</strong>. En las primeras tres harás clic sobre un elemento del modelo; en las demás compararás el modelo con los planos y decidirás qué no coincide.</li>
+            <li><strong>Cómo moverte:</strong> arrastra para girar, usa la rueda o el pellizco para acercar. Si lo prefieres, hay botones para girar, mirar desde arriba y acercar. El botón <strong>Quitar el techo</strong> te deja ver los muros interiores.</li>
+            <li><strong>Orientación:</strong> al abrir el modelo ves la fachada sur (con la puerta principal) y el muro este. Debajo del modelo tienes la planta, la elevación y el corte como referencia.</li>
+            <li><strong>No hay límite de tiempo.</strong> Puedes equivocarte y volver a intentarlo.</li>
+            <li>Ganas <strong>10 puntos</strong> si aciertas sin ayuda, <strong>6</strong> si necesitas un segundo intento o una pista, y <strong>3</strong> si necesitas más ayuda. Siempre verás por qué la respuesta es correcta.</li>
+            <li>Sin ratón: en las preguntas de clic, abre la lista de huecos del modelo y elige con el teclado.</li>
+          </ul>
+          <p id="aviso-inicio" class="muted"></p>
+          <div class="actions">
+            <button id="btn-continuar" class="btn btn-primary" type="button" hidden>Continuar mi intento</button>
+            <button id="btn-empezar" class="btn btn-primary" type="button">Empezar</button>
+          </div>
+        </div>
+
+        <!-- Pantalla de juego -->
+        <div id="pantalla-juego" hidden>
+          <div class="hud">
+            <p id="hud-pregunta"></p>
+            <div class="progreso">
+              <div class="progreso-barra" id="hud-barra" role="progressbar" aria-label="Avance del reto" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+              <span id="hud-porcentaje" class="progreso-valor">0%</span>
+            </div>
+            <p id="hud-puntos"></p>
+          </div>
+
+          <h2 id="enunciado" tabindex="-1"></h2>
+
+          <div id="area-opciones" hidden>
+            <div id="opciones" class="opciones" role="group" aria-labelledby="enunciado"></div>
+          </div>
+
+          <div class="acciones-reto">
+            <button id="btn-pista" class="btn btn-outline" type="button">Ver una pista</button>
+            <button id="btn-siguiente" class="btn btn-primary" type="button" hidden>Siguiente</button>
+          </div>
+          <div id="retro" class="retro" role="status" aria-live="polite"></div>
+
+          <div class="visor" style="margin-top:1rem">
+            <div id="visor-3d" class="visor3d"></div>
+            <div class="barra-3d" role="group" aria-label="Controles de la cámara">
+              <button id="cam-izq" class="btn btn-outline btn-peq" type="button">Girar a la izquierda</button>
+              <button id="cam-der" class="btn btn-outline btn-peq" type="button">Girar a la derecha</button>
+              <button id="cam-arriba" class="btn btn-outline btn-peq" type="button">Ver desde arriba</button>
+              <button id="cam-mas" class="btn btn-outline btn-peq" type="button">Acercar</button>
+              <button id="cam-menos" class="btn btn-outline btn-peq" type="button">Alejar</button>
+              <button id="cam-inicial" class="btn btn-outline btn-peq" type="button">Vista inicial</button>
+              <button id="btn-techo" class="btn btn-outline btn-peq" type="button" aria-pressed="false">Quitar el techo</button>
+            </div>
+            <details id="lista-huecos" class="detalle-huecos" hidden>
+              <summary>Lista de huecos del modelo (alternativa al clic)</summary>
+              <div id="botones-huecos" class="opciones"></div>
+            </details>
+          </div>
+
+          <section class="visor" style="margin-top:1rem" aria-labelledby="titulo-ref">
+            <h3 id="titulo-ref">Planos de referencia</h3>
+            <div id="tabs-ref" class="tabs" role="group" aria-label="Elegir plano de referencia"></div>
+            <div id="lienzo-ref" class="lienzo"></div>
+          </section>
+        </div>
+
+        <!-- Pantalla final -->
+        <div id="pantalla-final" hidden>
+          <h2 id="final-titulo" tabindex="-1">Reto completado</h2>
+          <div id="final-contenido"></div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Del plano al 3D: Misión Edificación · Recurso educativo con datos ficticios.</p>
+      <p><a href="creditos.html">Créditos y referencias</a></p>
+    </div>
+  </footer>
+</body data-requiere-sesion>
+</html>

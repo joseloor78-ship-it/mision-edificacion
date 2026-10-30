@@ -1,0 +1,110 @@
+{
+  "titulo": "Del plano al 3D",
+  "preguntas": [
+    {
+      "id": "q1",
+      "tipo": "clic",
+      "enunciado": "Gira el modelo 3D y haz clic en la puerta principal.",
+      "modelo": { "techo": true },
+      "objetivos": ["P1"],
+      "pista": "Está en la fachada sur. En la elevación sur de los planos de referencia, la puerta aparece a la izquierda de la ventana.",
+      "explicacion": "La puerta principal está en el muro sur, la cara que mira al frente cuando se abre el visor.",
+      "concepto": "Reconocer en el modelo 3D los elementos de la planta"
+    },
+    {
+      "id": "q2",
+      "tipo": "clic",
+      "enunciado": "Haz clic en la ventana de la cocina. Está en un muro que no se ve al abrir el modelo: gira para encontrarlo.",
+      "modelo": { "techo": true },
+      "objetivos": ["V2"],
+      "pista": "En la planta, la cocina está en la parte de arriba (el norte). Gira el modelo hasta ver esa cara.",
+      "explicacion": "La ventana de la cocina está en el muro norte, el opuesto a la fachada principal.",
+      "concepto": "Orientar el modelo 3D con los puntos cardinales de la planta"
+    },
+    {
+      "id": "q3",
+      "tipo": "clic",
+      "enunciado": "Quita el techo y haz clic en el paso libre (vano) que comunica la sala con la cocina.",
+      "modelo": { "techo": true },
+      "objetivos": ["VANO1"],
+      "pista": "Con el techo quitado se ven los muros interiores. Busca un hueco sin puerta en el muro que separa la cocina de la sala, y míralo de lado.",
+      "explicacion": "Es el hueco sin hoja en el muro interior entre la sala-comedor y la cocina.",
+      "concepto": "Reconocer elementos interiores en el modelo (techo quitado)"
+    },
+    {
+      "id": "q4",
+      "tipo": "opciones",
+      "enunciado": "Compara este modelo con los planos de referencia. ¿Qué no coincide?",
+      "modelo": { "techo": true, "cambios": [{ "id": "V3", "quitar": true }] },
+      "correcta": "Falta la ventana del dormitorio en el muro este",
+      "distractores": [
+        "La puerta principal está en el muro norte",
+        "La ventana de la cocina está en el muro sur",
+        "Todo coincide: no hay discrepancias"
+      ],
+      "pista": "Revisa el muro este: la planta y el corte A-A muestran una ventana en el dormitorio.",
+      "explicacion": "En la planta y en el corte A-A hay una ventana en el muro este (dormitorio), pero en el modelo ese muro es liso.",
+      "concepto": "Detectar elementos que faltan en el modelo"
+    },
+    {
+      "id": "q5",
+      "tipo": "opciones",
+      "enunciado": "Compara este otro modelo con los planos de referencia. ¿Qué no coincide?",
+      "modelo": { "techo": true, "cambios": [{ "id": "V1", "set": { "muro": "norte" } }] },
+      "correcta": "La ventana de la sala aparece en el muro norte, pero en los planos está en el muro sur",
+      "distractores": [
+        "La puerta principal está en el muro este",
+        "Falta la ventana de la cocina",
+        "Todo coincide: no hay discrepancias"
+      ],
+      "pista": "Mira en qué muro está la ventana de la sala en la elevación sur y compáralo con el modelo.",
+      "explicacion": "En la elevación sur la ventana se ve en la fachada sur. En el modelo aparece en el muro opuesto, el norte.",
+      "concepto": "Detectar elementos en el muro equivocado"
+    },
+    {
+      "id": "q6",
+      "tipo": "opciones",
+      "enunciado": "Un modelo más. Compáralo con los planos de referencia: ¿qué no coincide?",
+      "modelo": { "techo": true, "cambios": [{ "id": "P1", "set": { "alto": 1.6 } }] },
+      "correcta": "La puerta principal es más baja de lo que indica la elevación",
+      "distractores": [
+        "La puerta principal es más ancha de lo que indica la planta",
+        "La ventana de la sala está más alta de lo que indica la elevación",
+        "Todo coincide: no hay discrepancias"
+      ],
+      "pista": "En la elevación sur, la puerta y la ventana llegan a la misma altura. Mira si ocurre lo mismo en el modelo.",
+      "explicacion": "En la elevación sur la puerta y la ventana llegan a la misma altura. En el modelo la puerta queda por debajo del borde superior de la ventana.",
+      "concepto": "Comparar alturas entre el modelo y la elevación"
+    },
+    {
+      "id": "q7",
+      "tipo": "opciones",
+      "enunciado": "Revisa este modelo con cuidado, también por dentro. ¿Qué no coincide?",
+      "modelo": { "techo": true, "cambios": [{ "id": "VANO1", "quitar": true }] },
+      "correcta": "Falta el paso libre entre la sala y la cocina: en el modelo ese muro no tiene hueco",
+      "distractores": [
+        "La puerta del baño está en otro muro",
+        "Falta la ventana del baño",
+        "Todo coincide: no hay discrepancias"
+      ],
+      "pista": "Quita el techo y mira los muros interiores desde varios lados. Compáralos con la planta.",
+      "explicacion": "En la planta hay un hueco sin puerta en el muro entre la sala y la cocina. En el modelo ese muro es continuo. Con el techo puesto no se ve: para revisar el interior hay que quitarlo.",
+      "concepto": "Revisar el interior del modelo antes de darlo por bueno"
+    },
+    {
+      "id": "q8",
+      "tipo": "opciones",
+      "enunciado": "Último modelo. ¿Corresponde con los planos?",
+      "modelo": { "techo": true },
+      "correcta": "Sí coincide: el modelo corresponde con los planos",
+      "distractores": [
+        "No coincide: falta el paso libre entre la sala y la cocina",
+        "No coincide: la puerta principal está en el muro norte",
+        "No coincide: faltan ventanas en el muro sur"
+      ],
+      "pista": "Comprueba elemento por elemento, y recuerda quitar el techo para ver el interior.",
+      "explicacion": "Cada elemento está en su muro y en su posición, y el paso a la cocina existe. Antes de declarar un error conviene comprobarlo todo: a veces el modelo es correcto.",
+      "concepto": "Verificar con cuidado antes de declarar un error"
+    }
+  ]
+}

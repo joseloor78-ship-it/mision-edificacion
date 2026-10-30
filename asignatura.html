@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Asignatura · Del plano al 3D</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="vendor/supabase/supabase.js" defer></script>
+  <script src="js/config.js" defer></script>
+  <script src="js/auth.js" defer></script>
+  <script src="js/progreso.js" defer></script>
+  <script src="js/asignatura.js" defer></script>
+</head>
+<body data-requiere-sesion>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <path d="M16 2 28 9v14L16 30 4 23V9z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          <path class="linea-acento" d="M4 9l12 7 12-7M16 16v14" fill="none" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <span>Del plano<br>al 3D</span>
+      </a>
+      <nav aria-label="Principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="cursos.html">Mis asignaturas</a></li>
+          <li><a href="aprender.html">Aprender</a></li>
+          <li><a href="mision.html">Misión</a></li>
+          <li><a href="creditos.html">Créditos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <div class="page-title">
+      <div class="wrap">
+        <p><a href="cursos.html">← Mis asignaturas</a></p>
+        <h1 id="asig-nombre">Asignatura</h1>
+        <p id="asig-detalle"></p>
+        <p id="asig-descripcion"></p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="wrap">
+        <p id="error-asig" class="error-visor" role="alert" hidden>No se pudo cargar la asignatura. Puede que no exista o que no tengas acceso a ella.</p>
+
+        <div id="bloque-resultado" hidden>
+          <h2>Resultado de aprendizaje</h2>
+          <div class="card"><p id="asig-resultado"></p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <h2>Contenidos</h2>
+        <div id="asig-temas" class="grid"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div id="asig-rol"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Del plano al 3D: Misión Edificación · Recurso educativo con datos ficticios.</p>
+      <p><a href="creditos.html">Créditos y referencias</a></p>
+    </div>
+  </footer>
+</body>
+</html>

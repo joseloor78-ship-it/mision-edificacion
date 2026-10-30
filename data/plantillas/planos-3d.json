@@ -1,0 +1,16 @@
+{
+  "resultadoAprendizaje": "Interpretar una planta arquitectónica sencilla, relacionarla con su elevación y su corte, y comprobar su correspondencia con una representación tridimensional básica.",
+  "temas": [
+    {
+      "id": "tema1",
+      "titulo": "Interpretación de planos y modelado 3D básico",
+      "descripcion": "Una misma vivienda ficticia vista en planta, elevación, corte y modelo tridimensional.",
+      "actividades": [
+        { "tipo": "lectura", "titulo": "Aprender: planta, elevación y corte", "enlace": "aprender.html" },
+        { "tipo": "reto", "id": "reto1", "titulo": "Nivel 1: Detectives del plano", "enlace": "reto1.html" },
+        { "tipo": "reto", "id": "reto2", "titulo": "Nivel 2: Conecta las vistas", "enlace": "reto2.html" },
+        { "tipo": "reto", "id": "reto3", "titulo": "Nivel 3: Del plano al 3D", "enlace": "reto3.html" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mis asignaturas · Del plano al 3D</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="vendor/supabase/supabase.js" defer></script>
+  <script src="js/config.js" defer></script>
+  <script src="js/auth.js" defer></script>
+  <script src="js/cursos.js" defer></script>
+</head>
+<body data-requiere-sesion>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <path d="M16 2 28 9v14L16 30 4 23V9z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          <path class="linea-acento" d="M4 9l12 7 12-7M16 16v14" fill="none" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <span>Del plano<br>al 3D</span>
+      </a>
+      <nav aria-label="Principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="cursos.html" aria-current="page">Mis asignaturas</a></li>
+          <li><a href="creditos.html">Créditos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <div class="page-title">
+      <div class="wrap">
+        <h1>Mis asignaturas</h1>
+        <p id="cursos-subtitulo">Elige una asignatura para entrar a sus contenidos.</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="wrap">
+        <p id="error-cursos" class="error-visor" role="alert" hidden>No se pudieron cargar las asignaturas. Revisa tu conexión y que el proyecto de Supabase esté activo.</p>
+
+        <div id="zona-docente" hidden>
+          <button id="btn-nueva" class="btn btn-primary" type="button" aria-expanded="false" aria-controls="form-asig">Nueva asignatura</button>
+          <form id="form-asig" class="card form-asig" hidden novalidate>
+            <h2>Nueva asignatura</h2>
+            <div class="campo">
+              <label for="asig-nombre-in">Nombre de la asignatura</label>
+              <input id="asig-nombre-in" name="nombre" type="text" maxlength="120" required>
+            </div>
+            <div class="campo">
+              <label for="asig-periodo-in">Periodo académico (opcional)</label>
+              <input id="asig-periodo-in" name="periodo" type="text" maxlength="60">
+            </div>
+            <div class="campo">
+              <label for="asig-desc-in">Descripción breve (opcional)</label>
+              <textarea id="asig-desc-in" name="descripcion" rows="3" maxlength="400"></textarea>
+            </div>
+            <div class="campo">
+              <label for="asig-plantilla-in">Contenido de la asignatura</label>
+              <select id="asig-plantilla-in" name="plantilla">
+                <option value="planos-3d">Del plano al 3D (contenido completo)</option>
+                <option value="vacia">Sin contenidos por ahora</option>
+              </select>
+            </div>
+            <div class="actions">
+              <button id="btn-crear" class="btn btn-primary" type="submit">Crear asignatura</button>
+              <button id="btn-cancelar" class="btn btn-outline" type="button">Cancelar</button>
+            </div>
+            <p id="msg-nueva" class="mensaje-form" role="status" hidden></p>
+          </form>
+        </div>
+
+        <div id="lista-cursos" class="cursos"></div>
+        <p id="vacio-cursos" class="muted" hidden></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Del plano al 3D: Misión Edificación · Recurso educativo con datos ficticios.</p>
+      <p><a href="creditos.html">Créditos y referencias</a></p>
+    </div>
+  </footer>
+</body>
+</html>

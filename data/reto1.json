@@ -1,0 +1,82 @@
+{
+  "titulo": "Detectives del plano",
+  "preguntas": [
+    {
+      "id": "q1",
+      "tipo": "clic",
+      "enunciado": "Encuentra la puerta principal: la que comunica el exterior con la vivienda. Haz clic sobre ella en la planta.",
+      "objetivos": ["P1"],
+      "pista": "Busca una puerta en el borde de la planta. Las puertas se dibujan con un hueco en el muro y un arco que muestra hacia dónde gira la hoja.",
+      "explicacion": "Es la única puerta que comunica el exterior con un espacio de la vivienda.",
+      "concepto": "Reconocer puertas y su símbolo de giro"
+    },
+    {
+      "id": "q2",
+      "tipo": "clic",
+      "enunciado": "Haz clic en el dormitorio.",
+      "objetivos": ["dormitorio"],
+      "pista": "Los espacios llevan su nombre escrito. El dormitorio es uno de los dos espacios del lado derecho de la planta.",
+      "explicacion": "El dormitorio ocupa la parte superior del lado derecho, junto al baño.",
+      "concepto": "Reconocer los espacios por su nombre y ubicación"
+    },
+    {
+      "id": "q3",
+      "tipo": "clic",
+      "enunciado": "Encuentra la ventana de la cocina.",
+      "objetivos": ["V2"],
+      "pista": "La cocina está arriba a la izquierda. Las ventanas se dibujan como un hueco en el muro con una línea en el centro.",
+      "explicacion": "La ventana de la cocina está en el muro norte, el de arriba en la planta.",
+      "concepto": "Reconocer ventanas y ubicarlas en el muro correcto"
+    },
+    {
+      "id": "q4",
+      "tipo": "opciones",
+      "calculo": "contarPuertas",
+      "enunciado": "¿Cuántas puertas tiene la vivienda? Cuenta solo las que tienen hoja.",
+      "pista": "Una puerta se dibuja con una línea (la hoja) y un arco (su giro). Un hueco sin hoja ni arco no es una puerta.",
+      "explicacion": "La respuesta es {respuesta}. El paso hacia la cocina es un vano: un hueco sin hoja, por eso no se cuenta como puerta.",
+      "concepto": "Contar puertas sin confundirlas con vanos"
+    },
+    {
+      "id": "q5",
+      "tipo": "clic",
+      "enunciado": "Haz clic en el paso libre: el hueco sin puerta que comunica dos espacios.",
+      "objetivos": ["VANO1"],
+      "pista": "Busca un hueco en un muro interior donde no se dibujó ninguna hoja ni arco.",
+      "explicacion": "Ese hueco comunica la sala-comedor con la cocina. Se llama vano porque no tiene hoja.",
+      "concepto": "Reconocer vanos (huecos sin hoja)"
+    },
+    {
+      "id": "q6",
+      "tipo": "opciones",
+      "calculo": "anchoTotal",
+      "enunciado": "¿Cuánto mide la vivienda de ancho, medido por fuera de los muros? Fíjate en la cota de arriba.",
+      "pista": "Las cotas son líneas finas con marcas en los extremos y un valor en metros. La de arriba mide el lado horizontal.",
+      "explicacion": "La cota superior indica el ancho exterior: {respuesta}. La cota del costado mide el fondo, de norte a sur.",
+      "concepto": "Leer cotas generales"
+    },
+    {
+      "id": "q7",
+      "tipo": "clic",
+      "enunciado": "Un espacio se comunica con todos los demás: con la cocina, el dormitorio y el baño. Haz clic en él.",
+      "objetivos": ["sala"],
+      "pista": "Sigue las puertas y el paso libre: ¿desde qué espacio se llega a los otros tres?",
+      "explicacion": "La sala-comedor es el espacio de circulación: de ella salen el paso a la cocina y las puertas del dormitorio y del baño, y además tiene la puerta principal.",
+      "concepto": "Analizar cómo se comunican los espacios"
+    },
+    {
+      "id": "q8",
+      "tipo": "opciones",
+      "enunciado": "En la planta hay una línea roja discontinua con la letra A en cada extremo. ¿Qué indica?",
+      "correcta": "Por dónde se corta la vivienda para dibujar el corte A-A",
+      "distractores": [
+        "La ubicación de un muro que se va a demoler",
+        "Una cota que mide la distancia entre dos ventanas",
+        "El recorrido de una instalación eléctrica"
+      ],
+      "pista": "Las letras de los extremos se repiten en el nombre de otra vista.",
+      "explicacion": "La línea de corte señala dónde se imagina cortada la vivienda; las letras A-A dan nombre al corte que se dibuja aparte.",
+      "concepto": "Interpretar la línea de corte"
+    }
+  ]
+}

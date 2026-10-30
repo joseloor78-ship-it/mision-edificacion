@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "nombre": "Vivienda modelo",
+    "tipo": "ejemplo_educativo",
+    "unidad": "m",
+    "origen": "esquina noroeste exterior",
+    "ejeX": "hacia el este",
+    "ejeY": "hacia el sur",
+    "aviso": "Datos ficticios para fines educativos. No usar para diseño real."
+  },
+  "exterior": { "ancho": 8.00, "fondo": 6.00, "muroExterior": 0.20, "muroInterior": 0.10 },
+  "alturas": { "libreInterior": 2.60, "puerta": 2.10, "espesorLosaTecho": 0.15 },
+    "muros": [
+    { "muro": "norte", "eje": "x", "pos": 0.10, "desde": 0.00, "hasta": 8.00, "espesor": 0.20 },
+    { "muro": "sur",   "eje": "x", "pos": 5.90, "desde": 0.00, "hasta": 8.00, "espesor": 0.20 },
+    { "muro": "oeste", "eje": "y", "pos": 0.10, "desde": 0.20, "hasta": 5.80, "espesor": 0.20 },
+    { "muro": "este",  "eje": "y", "pos": 7.90, "desde": 0.20, "hasta": 5.80, "espesor": 0.20 },
+    { "muro": "interior x=5.00", "eje": "y", "pos": 5.00, "desde": 0.20, "hasta": 5.80, "espesor": 0.10 },
+    { "muro": "interior y=2.00", "eje": "x", "pos": 2.00, "desde": 0.20, "hasta": 4.95, "espesor": 0.10 },
+    { "muro": "interior y=4.00", "eje": "x", "pos": 4.00, "desde": 5.05, "hasta": 7.80, "espesor": 0.10 }
+  ],
+  "espacios": [
+    { "id": "sala",       "nombre": "Sala-comedor", "x1": 0.20, "x2": 4.95, "y1": 2.05, "y2": 5.80, "area": 17.81 },
+    { "id": "cocina",     "nombre": "Cocina",       "x1": 0.20, "x2": 4.95, "y1": 0.20, "y2": 1.95, "area": 8.31 },
+    { "id": "dormitorio", "nombre": "Dormitorio",   "x1": 5.05, "x2": 7.80, "y1": 0.20, "y2": 3.95, "area": 10.31 },
+    { "id": "bano",       "nombre": "Baño",         "x1": 5.05, "x2": 7.80, "y1": 4.05, "y2": 5.80, "area": 4.81 }
+  ],
+  "aberturas": [
+    { "id": "P1", "tipo": "puerta",  "nombre": "Puerta principal",     "muro": "sur",    "desde": 1.05, "hasta": 1.95, "ancho": 0.90, "alto": 2.10, "antepecho": 0.00, "conecta": ["exterior", "sala"] },
+    { "id": "P2", "tipo": "puerta",  "nombre": "Puerta del dormitorio","muro": "interior x=5.00", "desde": 2.55, "hasta": 3.45, "ancho": 0.90, "alto": 2.10, "antepecho": 0.00, "conecta": ["sala", "dormitorio"] },
+    { "id": "P3", "tipo": "puerta",  "nombre": "Puerta del baño",      "muro": "interior x=5.00", "desde": 4.50, "hasta": 5.30, "ancho": 0.80, "alto": 2.10, "antepecho": 0.00, "conecta": ["sala", "bano"] },
+    { "id": "VANO1", "tipo": "vano", "nombre": "Paso a la cocina",     "muro": "interior y=2.00", "desde": 1.50, "hasta": 2.70, "ancho": 1.20, "alto": 2.10, "antepecho": 0.00, "conecta": ["sala", "cocina"] },
+    { "id": "V1", "tipo": "ventana", "nombre": "Ventana de la sala",   "muro": "sur",    "desde": 3.00, "hasta": 4.40, "ancho": 1.40, "alto": 1.20, "antepecho": 0.90 },
+    { "id": "V2", "tipo": "ventana", "nombre": "Ventana de la cocina", "muro": "norte",  "desde": 1.50, "hasta": 2.70, "ancho": 1.20, "alto": 1.00, "antepecho": 1.10 },
+    { "id": "V3", "tipo": "ventana", "nombre": "Ventana del dormitorio","muro": "este",  "desde": 2.40, "hasta": 3.60, "ancho": 1.20, "alto": 1.20, "antepecho": 0.90 },
+    { "id": "V4", "tipo": "ventana", "nombre": "Ventana del baño",     "muro": "este",   "desde": 4.60, "hasta": 5.20, "ancho": 0.60, "alto": 0.60, "antepecho": 1.60 }
+  ],
+  "cortes": [
+    { "id": "A-A", "descripcion": "Corte transversal en y = 3.00 m, mirando hacia el norte", "y": 3.00 }
+  ]
+}

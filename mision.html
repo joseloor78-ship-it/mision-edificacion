@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Misión · Del plano al 3D</title>
+  <meta name="description" content="Los tres retos de Misión Edificación.">
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="vendor/supabase/supabase.js" defer></script>
+  <script src="js/config.js" defer></script>
+  <script src="js/auth.js" defer></script>
+  <script src="js/progreso.js" defer></script>
+  <script src="js/mision.js" defer></script>
+</head>
+<body class="tema-oscuro" data-requiere-sesion>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <path d="M16 2 28 9v14L16 30 4 23V9z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          <path class="linea-acento" d="M4 9l12 7 12-7M16 16v14" fill="none" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <span>Del plano<br>al 3D</span>
+      </a>
+      <nav aria-label="Principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="aprender.html">Aprender</a></li>
+          <li><a href="mision.html" aria-current="page">Misión</a></li>
+          <li><a href="creditos.html">Créditos</a></li>
+        </ul>
+      </nav>
+      <span class="chip">Puntos: <strong id="puntos-valor">0</strong></span>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <div class="page-title">
+      <div class="wrap">
+        <h1>Misión Edificación</h1>
+        <p>Tres retos progresivos sobre la misma vivienda. Ganas puntos por interpretar bien los planos, no por ir rápido.</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="niveles">
+          <article class="nivel" data-reto="reto1" data-estado="disponible" data-bloqueado="false">
+            <div class="nivel-cab"><span class="nivel-num">NIVEL 1</span><span class="nivel-estado" data-etiqueta>Disponible</span></div>
+            <div class="nivel-arte">
+              <svg viewBox="0 0 160 124" aria-hidden="true" focusable="false">
+                <rect x="8" y="8" width="144" height="108" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+                <g stroke="currentColor" stroke-width="2"><line x1="98" y1="8" x2="98" y2="116"/><line x1="8" y1="44" x2="98" y2="44"/><line x1="98" y1="80" x2="152" y2="80"/></g>
+              </svg>
+            </div>
+            <h2>Detectives del plano</h2>
+            <p>Identifica espacios, muros, puertas, ventanas, símbolos y cotas en la planta.</p>
+            <p class="nivel-nota" data-nota></p>
+            <div class="nivel-accion" data-accion></div>
+            <div class="progreso">
+              <div class="progreso-barra" role="progressbar" aria-label="Progreso del Nivel 1" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+              <span class="progreso-valor">0%</span>
+            </div>
+          </article>
+
+          <article class="nivel" data-reto="reto2" data-estado="bloqueado" data-bloqueado="true">
+            <div class="nivel-cab"><span class="nivel-num">NIVEL 2</span><span class="nivel-estado" data-etiqueta>Bloqueado</span></div>
+            <div class="nivel-arte">
+              <svg viewBox="0 0 160 124" aria-hidden="true" focusable="false">
+                <g fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round">
+                  <rect x="8" y="52" width="144" height="50"/>
+                  <line x1="4" y1="102" x2="156" y2="102"/>
+                </g>
+                <g fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="8" y1="58" x2="152" y2="58"/>
+                  <rect x="27" y="64" width="16" height="38"/>
+                  <rect x="62" y="64" width="25" height="22"/>
+                </g>
+                <g class="candado"><circle cx="80" cy="62" r="24"/><rect x="70" y="62" width="20" height="16" rx="3"/><path d="M74 62v-5a6 6 0 0 1 12 0v5"/></g>
+              </svg>
+            </div>
+            <h2>Conecta las vistas</h2>
+            <p>Relaciona la planta con la elevación y el corte, y detecta discrepancias.</p>
+            <p class="nivel-nota" data-nota></p>
+            <div class="nivel-accion" data-accion></div>
+            <div class="progreso">
+              <div class="progreso-barra" role="progressbar" aria-label="Progreso del Nivel 2" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+              <span class="progreso-valor">0%</span>
+            </div>
+          </article>
+
+          <article class="nivel" data-reto="reto3" data-estado="bloqueado" data-bloqueado="true">
+            <div class="nivel-cab"><span class="nivel-num">NIVEL 3</span><span class="nivel-estado" data-etiqueta>Bloqueado</span></div>
+            <div class="nivel-arte">
+              <svg viewBox="0 0 160 124" aria-hidden="true" focusable="false">
+                <g transform="translate(10 6) scale(.32)" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round">
+                  <polygon points="200,22 421.7,150 255.4,246 33.8,118"/>
+                  <polygon points="33.8,118 255.4,246 255.4,334 33.8,206"/>
+                  <polygon points="421.7,150 255.4,246 255.4,334 421.7,238"/>
+                </g>
+                <g class="candado"><circle cx="80" cy="62" r="24"/><rect x="70" y="62" width="20" height="16" rx="3"/><path d="M74 62v-5a6 6 0 0 1 12 0v5"/></g>
+              </svg>
+            </div>
+            <h2>Del plano al 3D</h2>
+            <p>Comprueba si un modelo tridimensional básico coincide con los planos.</p>
+            <p class="nivel-nota" data-nota></p>
+            <div class="nivel-accion" data-accion></div>
+            <div class="progreso">
+              <div class="progreso-barra" role="progressbar" aria-label="Progreso del Nivel 3" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span></span></div>
+              <span class="progreso-valor">0%</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="barra-mision">
+          <p><strong>Misión:</strong> interpreta los planos y comprueba si el modelo 3D coincide con ellos.</p>
+          <ul>
+            <li><a href="aprender.html">Recursos de aprendizaje</a></li>
+            <li><a href="creditos.html">Créditos</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Del plano al 3D: Misión Edificación · Recurso educativo con datos ficticios.</p>
+      <p><a href="creditos.html">Créditos y referencias</a></p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 390" role="img" aria-labelledby="t d" font-family="Arial, sans-serif">
+  <title id="t">Elevación sur (fachada principal) de la vivienda modelo</title>
+  <desc id="d">Fachada de 8.00 m de ancho y 2.75 m de alto con la puerta principal P1 a la izquierda y la ventana V1 a la derecha.</desc>
+  <rect width="760" height="390" fill="#ffffff"/>
+
+  <!-- Fachada y losa de techo -->
+  <rect x="60" y="80" width="640" height="220" fill="#f3f4f6" stroke="#1f2937" stroke-width="2"/>
+  <rect x="60" y="80" width="640" height="12" fill="#d1d5db" stroke="#1f2937" stroke-width="1.5"/>
+
+  <!-- Línea de terreno -->
+  <line x1="40" y1="300" x2="720" y2="300" stroke="#1f2937" stroke-width="3"/>
+
+  <!-- Puerta P1 -->
+  <g id="P1" stroke="#1f2937" stroke-width="1.5">
+    <rect x="144" y="132" width="72" height="168" fill="#ffffff"/>
+    <circle cx="206" cy="224" r="3" fill="#1f2937"/>
+  </g>
+  <text x="180" y="156" font-size="14" text-anchor="middle" fill="#111827">P1</text>
+
+  <!-- Ventana V1 -->
+  <g id="V1" stroke="#1f2937" stroke-width="1.5">
+    <rect x="300" y="132" width="112" height="96" fill="#ffffff"/>
+    <line x1="356" y1="132" x2="356" y2="228"/>
+  </g>
+  <text x="328" y="186" font-size="14" text-anchor="middle" fill="#111827">V1</text>
+
+  <!-- Cotas -->
+  <g stroke="#374151" stroke-width="1" fill="#374151" font-size="12" text-anchor="middle">
+    <line x1="718" y1="80" x2="718" y2="300"/>
+    <line x1="712" y1="80" x2="724" y2="80"/><line x1="712" y1="300" x2="724" y2="300"/>
+    <text x="738" y="190" stroke="none" transform="rotate(-90 738 190)">2.75 m (total)</text>
+
+    <line x1="130" y1="132" x2="130" y2="300"/>
+    <line x1="124" y1="132" x2="136" y2="132"/>
+    <text x="122" y="216" stroke="none" transform="rotate(-90 122 216)">2.10</text>
+
+    <line x1="290" y1="228" x2="290" y2="300"/>
+    <line x1="284" y1="228" x2="296" y2="228"/>
+    <text x="282" y="264" stroke="none" transform="rotate(-90 282 264)">0.90</text>
+
+    <line x1="422" y1="132" x2="422" y2="228"/>
+    <line x1="416" y1="132" x2="428" y2="132"/><line x1="416" y1="228" x2="428" y2="228"/>
+    <text x="436" y="180" stroke="none" transform="rotate(-90 436 180)">1.20</text>
+  </g>
+
+  <!-- Orientación y títulos -->
+  <g font-size="14" fill="#111827">
+    <text x="60" y="322">Oeste</text>
+    <text x="700" y="322" text-anchor="end">Este</text>
+    <text x="380" y="352" text-anchor="middle" font-size="16" font-weight="bold">Elevación sur (fachada principal)</text>
+  </g>
+</svg>

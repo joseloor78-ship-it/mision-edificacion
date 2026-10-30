@@ -1,0 +1,120 @@
+{
+  "titulo": "Conecta las vistas",
+  "preguntas": [
+    {
+      "id": "q1",
+      "tipo": "clic",
+      "enunciado": "En la planta está resaltada la puerta principal. Haz clic en esa misma puerta en la elevación sur.",
+      "vistas": [
+        { "vista": "planta", "resaltar": ["P1"] },
+        { "vista": "elevacion", "objetivos": ["P1"] }
+      ],
+      "pista": "En la planta, la puerta está cerca del lado oeste. En la elevación sur miras desde fuera hacia el norte, así que el oeste queda a tu izquierda.",
+      "explicacion": "En la planta la puerta está en el muro sur, cerca del lado oeste. En la elevación sur el oeste queda a la izquierda, por eso la puerta aparece a la izquierda.",
+      "concepto": "Ubicar en la elevación elementos vistos en la planta"
+    },
+    {
+      "id": "q2",
+      "tipo": "clic",
+      "enunciado": "Ahora está resaltada una ventana en la planta. Haz clic en la misma ventana en la elevación sur.",
+      "vistas": [
+        { "vista": "planta", "resaltar": ["V1"] },
+        { "vista": "elevacion", "objetivos": ["V1"] }
+      ],
+      "pista": "Compara su posición con la de la puerta principal: ¿está a su izquierda o a su derecha en la planta?",
+      "explicacion": "En la planta la ventana está en el muro sur, a la derecha de la puerta principal. En la elevación conserva esa posición relativa.",
+      "concepto": "Ubicar en la elevación elementos vistos en la planta"
+    },
+    {
+      "id": "q3",
+      "tipo": "clic",
+      "enunciado": "En la planta está resaltada la puerta del dormitorio. Haz clic en ella en el corte A-A.",
+      "vistas": [
+        { "vista": "planta", "resaltar": ["P2"] },
+        { "vista": "corte", "objetivos": ["P2"] }
+      ],
+      "pista": "Mira la línea roja de corte en la planta: ¿qué elementos cruza? En el corte miras hacia el norte, con el oeste a la izquierda.",
+      "explicacion": "La línea de corte pasa justo por esa puerta, así que en el corte aparece como un hueco en el muro interior, a la derecha del centro.",
+      "concepto": "Relacionar la planta con el corte a través de la línea de corte"
+    },
+    {
+      "id": "q4",
+      "tipo": "clic",
+      "enunciado": "En la planta está resaltada la ventana del dormitorio. Haz clic en ella en el corte A-A.",
+      "vistas": [
+        { "vista": "planta", "resaltar": ["V3"] },
+        { "vista": "corte", "objetivos": ["V3"] }
+      ],
+      "pista": "Esa ventana está en el muro este. En el corte, el este queda a la derecha.",
+      "explicacion": "La línea de corte también cruza esa ventana. En el corte aparece como un hueco con una línea en el centro, en el muro de la derecha (el este).",
+      "concepto": "Relacionar la planta con el corte a través de la línea de corte"
+    },
+    {
+      "id": "q5",
+      "tipo": "opciones",
+      "calculo": "inicioVentana",
+      "parametro": "V1",
+      "enunciado": "¿A qué altura sobre el piso empieza la ventana de la sala? Busca el dato en la vista donde se puede leer.",
+      "vistas": [
+        { "vista": "elevacion" }
+      ],
+      "pista": "Fíjate en las cotas verticales junto a la ventana: una mide desde el piso hasta su borde inferior y otra mide la altura de la ventana.",
+      "explicacion": "La ventana empieza a {respuesta} del piso. Ese dato se lee en la elevación; en la planta solo ves su posición horizontal y su ancho.",
+      "concepto": "Leer alturas en la elevación (y no en la planta)"
+    },
+    {
+      "id": "q6",
+      "tipo": "opciones",
+      "enunciado": "Necesitas saber cuánto mide de alto la puerta principal. ¿Qué vista te lo muestra?",
+      "vistas": [
+        { "vista": "planta" },
+        { "vista": "elevacion" }
+      ],
+      "correcta": "La elevación sur, porque muestra la fachada de frente y sus alturas",
+      "distractores": [
+        "La planta, porque muestra todas las medidas de la vivienda",
+        "El corte A-A, porque cruza la puerta principal",
+        "Ninguna: la altura de una puerta no se puede leer en los planos"
+      ],
+      "pista": "Piensa en qué muro está la puerta principal y qué vista lo muestra de frente.",
+      "explicacion": "La puerta principal está en la fachada sur, y la elevación sur la muestra de frente con sus alturas. La planta da su posición y ancho, y el corte A-A no pasa por ese muro.",
+      "concepto": "Elegir la vista adecuada para cada dato"
+    },
+    {
+      "id": "q7",
+      "tipo": "opciones",
+      "enunciado": "Compara la planta con esta elevación sur. ¿Qué no coincide?",
+      "vistas": [
+        { "vista": "planta" },
+        { "vista": "elevacion", "mover": [{ "id": "P1", "dx": 5 }], "quitarCotas": true }
+      ],
+      "correcta": "La puerta principal está en otra posición: en la planta está cerca del lado oeste (a la izquierda en la fachada sur) y aquí aparece a la derecha",
+      "distractores": [
+        "Falta la ventana V1, que sí aparece en la planta",
+        "La ventana V1 está en el muro equivocado",
+        "Todo coincide: no hay discrepancias"
+      ],
+      "pista": "Revisa elemento por elemento: primero la puerta, luego la ventana. Ubica cada uno en la planta y comprueba dónde debería verse en la elevación.",
+      "explicacion": "En la planta la puerta principal está cerca del lado oeste, que en la elevación sur queda a la izquierda. Aquí aparece a la derecha, así que esta elevación no coincide con la planta.",
+      "concepto": "Detectar discrepancias de posición entre planta y elevación"
+    },
+    {
+      "id": "q8",
+      "tipo": "opciones",
+      "enunciado": "Ahora compara la planta con este corte A-A. ¿Coinciden?",
+      "vistas": [
+        { "vista": "planta" },
+        { "vista": "corte", "quitarCotas": true }
+      ],
+      "correcta": "Sí coincide: el hueco de la puerta P2 y la ventana V3 aparecen donde indica la planta",
+      "distractores": [
+        "No coincide: falta el hueco de la puerta en el muro interior",
+        "No coincide: la ventana V3 aparece en el muro oeste",
+        "No se pueden comparar: la planta y el corte no tienen nada en común"
+      ],
+      "pista": "Sigue la línea de corte en la planta y anota qué cruza. Luego busca esos mismos elementos en el corte.",
+      "explicacion": "La línea de corte cruza la puerta P2 y el muro este. El corte muestra el hueco de la puerta en el muro interior y la ventana V3 en el muro de la derecha (el este). Antes de declarar un error conviene comprobar cada elemento: a veces todo coincide.",
+      "concepto": "Verificar con cuidado antes de declarar un error"
+    }
+  ]
+}
